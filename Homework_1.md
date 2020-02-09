@@ -50,10 +50,15 @@ Double check to see what the information was when the loan was issued (i.e. from
 
 #### 1. Download the datasets from ICON in the ‘Full Dataset’ folder. How many observations and features are in the full dataset?
 
+There are 1763077 observastions in the full dataset.
 
 #### 2. The '1712_download' and '1912_download' folders on ICON contain datasets downloaded in 2017 and 2019 for the same loans. Compare these two datasets, does anything appear amiss?
 
+It looks as thought the 2017 dataset has a column that 2019 does not. This column is 'disbursement_method'. There are also many static columns (meaning the values in the columns did not change). This makes sense since we are looking at the same loan information. However, what's interesting is that where we see an interest rate change we might also expect to see an installment change (i.e. there was a refinance of the loan). There are some cases where this is not the case (35 rows).
+
 #### 3. Remove all instances representing loans that are still current (those not in status 'Fully Paid', 'Charged-Off', or 'Default') and all loans issued before January 1, 2011 from the full dataset. Discuss the appropriateness of these filtering steps.
+
+Removing these rows is appropriate because we don't know the outcome of these loans yet. We don't want to include data for our model where we don't know if our predicted outcome is correct or not.
 
 #### 4. Visualize all the attributes in the file and turn in one visualization for a continuous variable and one visualization for a discrete variable. Are there any outliers? If yes, remove them and report which observations here.
 
