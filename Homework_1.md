@@ -62,11 +62,28 @@ Removing these rows is appropriate because we don't know the outcome of these lo
 
 #### 4. Visualize all the attributes in the file and turn in one visualization for a continuous variable and one visualization for a discrete variable. Are there any outliers? If yes, remove them and report which observations here.
 
-#### 5. Save the resulting dataset including only following attributes: 
+Discrete Variable Visualization: Grade
+|grade|number
+|-|-|
+|B|234953|
+|C|232657|
+|A|148542|
+|D|110686|
+|E|42237|
+|F|13604|
+|G|5014|
 
-```
-id, loan amnt, funded amnt, term, int rate, grade, emp length, home ownership, annual inc, verification status, issue_d, loan status, purpose, dti, delinq 2yrs, earliest cr line, open acc, pub rec, fico range high, fico range low, revol bal, revol util, total pymnt, and recoveries.
-```
+Continuous Variable Visualization: Annual Income
+![annual income before](images/annual_inc_before.png "Annual Inc Before")
+
+As you can see there is a pretty obvious outlier for annual income where the value is over 100,000,000 dollars.
+
+As far as other outliers within the data set, we also noticed that revol_bal (>1,250,000) and delinq_2yrs (>32) both had some outliers.
+
+
+After removing annual income outlier:
+![annual income after](images/annual_inc_after.png "Annual Inc After")
+
 
 ### Part 3:
 
@@ -74,11 +91,9 @@ id, loan amnt, funded amnt, term, int rate, grade, emp length, home ownership, a
 
 #### 2. A key measure we will need in working out an investment strategy is the return on each loan, defaulted or otherwise. Add these four new variables to the data. 
 
-#### a. There is a ‘Calculating Loan Return’ handout in the Case Study folder on ICON. Refer to this handout for a description of three different return calculations. M3(1.2%) refers to Method 3 using a re-invest rate of 1.2% and M3(3%) refers to Method 3 using a re-invest rate of 3%.
+##### a. There is a ‘Calculating Loan Return’ handout in the Case Study folder on ICON. Refer to this handout for a description of three different return calculations. M3(1.2%) refers to Method 3 using a re-invest rate of 1.2% and M3(3%) refers to Method 3 using a re-invest rate of 3%.
 
 ##### b. If you are using python, the provided notebook contains the code to calculate each of the return methods. Add four return variables: M1, M2, M3(1.2%), M3(3%).
-
-##### c. If you are using Rattle, use the formulas for each return calculation in the handout to add a column to your .csv file for each of the four calculations: M1, M2, M3(1.2%), M3(3%).
 
 ##### d. What is the mean and median return for each of the four return variables?
  
