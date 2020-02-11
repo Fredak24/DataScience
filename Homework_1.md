@@ -89,24 +89,90 @@ After removing annual income outlier:
 
 #### 1. The most important data we will need in determining the return of each loan is the total payments that were received on each loan. There are two variables related to this information: total pymnt and recoveries. Investigate these two variables, and for each loan, determine the total payment made on each loan. Does the total pymnt variable include those recoveries, or do they need to be added on? Briefly describe how you came to your conclusion.
 
-#### 2. A key measure we will need in working out an investment strategy is the return on each loan, defaulted or otherwise. Add these four new variables to the data. 
+So it looks like the recoveries column included the recoveries payments as well. We have made this conclusion based on the fact that when looking at a calculation of the installments times the length of the loan, we can see that this total always comes short of the total_pymnt value.
 
-##### a. There is a ‘Calculating Loan Return’ handout in the Case Study folder on ICON. Refer to this handout for a description of three different return calculations. M3(1.2%) refers to Method 3 using a re-invest rate of 1.2% and M3(3%) refers to Method 3 using a re-invest rate of 3%.
+#### 2. A key measure we will need in working out an investment strategy is the return on each loan, defaulted or otherwise. Add these four new variables to the data. What is the mean and median return for each of the four return variables?
 
-##### b. If you are using python, the provided notebook contains the code to calculate each of the return methods. Add four return variables: M1, M2, M3(1.2%), M3(3%).
+- Method 1 Pesimistic results:
+	- Mean: 0.0415733204919579
+	- Median: 2.7863924675738607
+- Method 2 Optimisic results:
+    - Mean: 4.9245445703291955
+	- Median: 7.476474863868679
+- Method 3 (1.2%)
+	- Mean: 13.209380349514971
+	- Median: 17.644040016278385
+- Method 3 (3%)
+	- Mean: 46.793771973857005
+	- Median: 49.54462031819411
 
-##### d. What is the mean and median return for each of the four return variables?
- 
 #### 3. LendingClub assigns a grade to each loan, from A through G. Use the dataset to answer the following questions:
 
 ##### a. How many loans are in each grade?
 
+| |percentage|count   |
+|-|----------|--------|
+|A|18.878608 |146737.0|
+|B|29.852586 |232034.0|
+|C|29.5450988|229644.0|
+|D|14.000484 |108821.0|
+|E|5.363158  |41686.0 |
+|F|1.727337  |13426.0 |
+|G|0.632731  |4918.0  |
+
 ##### b. What is the default rate in each grade?
+| |default_rate|
+|-|------------|
+|A|6.688156    |
+|B|14.920227   |
+|C|24.604170   |
+|D|33.379587   |
+|E|41.582306   |
+|F|50.357515   |
+|G|54.005693   |
 
 ##### c. What is the average interest rate in each grade?
 
+| |interest_rate|
+|-|------------|
+|A|6.981119    |
+|B|10.477369   |
+|C|14.113935   |
+|D|18.758675   |
+|E|23.610692   |
+|F|27.434500   |
+|G|29.965842   |
+
 ##### d. What is the average percentage (annual) return for each grade using each of the return calculations?
+
+|grade|return_OPT|return_PESS|return_INTa|return_INTb|
+|-|-|-|-|-|
+|A|3.850003|	1.036243|	13.964298|	44.180124
+|B|4.647929|	0.764194|	13.727066|	45.465953	
+|C|5.069478|	-0.179073|	13.113111|	47.799174	
+|D|5.754727|	-1.230543|	12.113887|	48.077860
+|E|6.634144|	-1.741258|	11.986214|	51.456900
+|F|6.456103|	-2.456857|	11.371310|	53.871506
+|G|6.227061|	-3.346234|	10.381430|	53.216044
 
 ##### e. Calculate and describe the skewness and kurtosis for the interest rate attribute and each of the return attributes.
 
+- Interest Rate results
+	- Kurtosis: 0.7923193787702627
+	- Skewness: 0.9274066932504201
+- Method 1 Pesimistic results:
+	- Kurtosis: 2.1895256579179883
+	- Skewness: -1.7151026655056627
+- Method 2 Optimisic results:
+	- Kurtosis: 1.1258894162746378
+	- Skewness: -1.0197136575455488
+- Method 3 (1.2%)
+	- Kurtosis: 1.836033439040972
+	- Skewness: -1.6591283502486942
+- Method 3 results (3%)
+	- Kurtosis: 0.24431715900694284
+	- Skewness: -0.25928553401635884
+
 ##### f. If you had to invest in one grade only, which loans would you invest in and why?
+
+Perhaps grade B because there are a pretty common to find amongst all loans, it returns better results than grade A for Method 1 results and Method 3 (3%) results, and even when looking at the pessimistic results, it only slightly performs worse than Grade A. Also it doesn't average a negative return for pessimistic results which means it is a safer investment.
