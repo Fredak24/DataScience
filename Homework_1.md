@@ -1,4 +1,7 @@
-### Part 1:
+# Homework 1
+### Group: Luke/William/Kossi
+
+# Part 1:
 
 #### 1. Fundamentally, what decisions will Jasmine need to make? 
 
@@ -46,7 +49,7 @@ Many of these variables are unclear on this front and most of them are ones that
 
 Double check to see what the information was when the loan was issued (i.e. from a previous download time) to see if the values are the same.
 
-### Part 2: 
+# Part 2: 
 
 #### 1. Download the datasets from ICON in the ‘Full Dataset’ folder. How many observations and features are in the full dataset?
 
@@ -73,7 +76,7 @@ Discrete Variable Visualization: Grade
 |F|13604|
 |G|5014|
 
-Continuous Variable Visualization: Annual Income
+Continuous Variable Visualization: Annual Income  
 ![annual income before](images/annual_inc_before.png "Annual Inc Before")
 
 As you can see there is a pretty obvious outlier for annual income where the value is over 100,000,000 dollars.
@@ -81,11 +84,11 @@ As you can see there is a pretty obvious outlier for annual income where the val
 As far as other outliers within the data set, we also noticed that revol_bal (>1,250,000) and delinq_2yrs (>32) both had some outliers.
 
 
-After removing annual income outlier:
+After removing annual income outlier:  
 ![annual income after](images/annual_inc_after.png "Annual Inc After")
 
 
-### Part 3:
+# Part 3:
 
 #### 1. The most important data we will need in determining the return of each loan is the total payments that were received on each loan. There are two variables related to this information: total pymnt and recoveries. Investigate these two variables, and for each loan, determine the total payment made on each loan. Does the total pymnt variable include those recoveries, or do they need to be added on? Briefly describe how you came to your conclusion.
 
@@ -175,4 +178,4 @@ So it looks like the recoveries column included the recoveries payments as well.
 
 ##### f. If you had to invest in one grade only, which loans would you invest in and why?
 
-Perhaps grade B because there are a pretty common to find amongst all loans, it returns better results than grade A for Method 1 results and Method 3 (3%) results, and even when looking at the pessimistic results, it only slightly performs worse than Grade A. Also it doesn't average a negative return for pessimistic results which means it is a safer investment.
+Perhaps grade B because they are a pretty common to find amongst all loans, it returns better results than grade A for Method 1 results and Method 3 (3%) results, and even when looking at the pessimistic results, it only slightly performs worse than Grade A. Also it doesn't average a negative return for pessimistic results which means it is a safer investment.
