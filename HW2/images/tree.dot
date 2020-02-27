@@ -1,0 +1,20 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="recoveries <= 0.0\ngini = 0.333\nsamples = 100.0%\nvalue = [0.789, 0.211]\nclass = defaults"] ;
+1 [label="total_pymnt <= 0.077\ngini = 0.165\nsamples = 86.7%\nvalue = [0.909, 0.091]\nclass = defaults"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="funded_amnt <= 0.098\ngini = 0.435\nsamples = 12.5%\nvalue = [0.681, 0.319]\nclass = defaults"] ;
+1 -> 2 ;
+3 [label="gini = 0.133\nsamples = 9.2%\nvalue = [0.928, 0.072]\nclass = defaults"] ;
+2 -> 3 ;
+4 [label="gini = 0.002\nsamples = 3.3%\nvalue = [0.001, 0.999]\nclass = paid off"] ;
+2 -> 4 ;
+5 [label="total_pymnt <= 0.156\ngini = 0.099\nsamples = 74.3%\nvalue = [0.948, 0.052]\nclass = defaults"] ;
+1 -> 5 ;
+6 [label="gini = 0.191\nsamples = 21.4%\nvalue = [0.893, 0.107]\nclass = defaults"] ;
+5 -> 6 ;
+7 [label="gini = 0.059\nsamples = 52.9%\nvalue = [0.97, 0.03]\nclass = defaults"] ;
+5 -> 7 ;
+8 [label="gini = 0.0\nsamples = 13.3%\nvalue = [0.0, 1.0]\nclass = paid off"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}
