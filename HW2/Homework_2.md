@@ -3,20 +3,29 @@
 
 # Part 1: Decision Tree  
 
-In this part, you will implement decision trees to predict how likely a loan is to default. 
+We used GridSearchCV to find the optimal parameters for our DecisionTreeClassifier. Providing an array of options for criterion and maxDepth, we let the GridSearchCV algorithm determine the optimal parameters. While GridSearchCV was able to provide us optimal parameters for our training dataset, we knew this didn't necessarily mean it would fit our test dataset as well as there was still a risk of overfitting. We settled on parameters of 'entropy' and a maxDepth of 12. When looking at how our model performed against the test dataset the results were quite good.
 
-Using all the features from your final dataset created in homework 1, implement a decision tree to predict the probability a loan will default.
-1. Explain the process you used for selecting optimal model parameters and evaluating model performance.
+Here are the metrics that were captured:
+**accuracy:** 0.997
+**recall:** 0.989
+**precision:** 0.998
+**f-measure:** 0.993
 
-We used GridSearchCV to find the optimal parameters. We found that the optimal parameters were: { criterion: gini, maxDepth: 3 }
+Confusion Matrix:
+![confusion matrix](images/dt_confusion_matrix.png "Confusion Matrix")
 
-2. Present a visualization of your model’s performance.
+![norm confusion matrix](images/dt_norm_confusion_matrix.png "Norm Confusion Matrix")
 
-Using an optimal set of features from your final dataset created in homework 1,
-implement a decision tree to predict the probability a loan will default.
-1. Explain the process you used for selecting the optimal set of features, selecting optimal model parameters, and evaluating model performance.
+ROC Curve
+![roc curve](images/dt_roc_curve.png "ROC Curve")
 
-Optimal Feature rankings:
+To determine the optimal set of features from the dataset we used the RFECV algorithm with the decision tree classifer. Our results were as follows:
+
+![optimal number of features](images/dt_optimal_num_features.png "Optimal number of features")
+
+As you can see, the cross validation scores only goes down after increasing the number of features.
+
+As far as what features were selected, here were the resulting rankings (top 10):
 feature|score
 -------|-----
 recoveries          | 1
@@ -30,7 +39,24 @@ emp_length::5 years | 5
 emp_length::4 years | 6
 dti                 | 7
 
-2. Present a visualization of your model’s performance.
+So, using the top four features, we created a new feature set, and attempted to find the optimal parameters using GridSearchCV again.
+
+This time our GridSearchCV settled on parameters of 'entropy' and a maxDepth of 11. The resulting metrics are performed against our test data is as follows:
+**accuracy:** 0.996
+**recall:** 0.982
+**precision:** 0.999
+**f-measure:** 0.991
+
+Confusion Matrix:
+![confusion matrix](images/dt_optimal_confusion_matrix.png "Confusion Matrix")
+
+![norm confusion matrix](images/dt_optimal_norm_confusion_matrix.png "Norm Confusion Matrix")
+
+ROC Curve
+![roc curve](images/dt_optimal_roc_curve.png "ROC Curve")
+
+The results here when compared are actually quite similar. The model with the full feature set gives slightly more accurate results, but given that the number of features dropped from 65 to 4, the second model is preferred in our opinion because of sheer simplicity.
+
 
 # Part 2: Logistic Regression
 
