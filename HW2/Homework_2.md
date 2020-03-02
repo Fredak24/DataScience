@@ -5,25 +5,23 @@
 
 We used GridSearchCV to find the optimal parameters for our DecisionTreeClassifier. Providing an array of options for criterion and maxDepth, we let the GridSearchCV algorithm determine the optimal parameters. While GridSearchCV was able to provide us optimal parameters for our training dataset, we knew this didn't necessarily mean it would fit our test dataset as well as there was still a risk of overfitting and so we then tested our model againt the test dataset, going back an forth a bit in order to determine the best maxDepth parameter. We settled on parameters of 'entropy' and a maxDepth of 12. When looking at how our model performed against the test dataset the results were quite good.
 
-Here are the metrics that were captured:
-**accuracy:** 0.997
-**recall:** 0.989
-**precision:** 0.998
-**f-measure:** 0.993
+Here are the metrics that were captured:  
+**accuracy:** 0.997  
+**recall:** 0.989  
+**precision:** 0.998  
+**f-measure:** 0.993  
 
-Confusion Matrix:
-![confusion matrix](images/dt_confusion_matrix.png "Confusion Matrix")
+![DecisionTree Confusion Matrix](images/dt_confusion_matrix.png "DecisionTree Confusion Matrix")
 
-![norm confusion matrix](images/dt_norm_confusion_matrix.png "Norm Confusion Matrix")
+![DecisionTree Normalized Confusion Matrix](images/dt_norm_confusion_matrix.png "DecisionTree Normalized Confusion Matrix")
 
-ROC Curve
-![roc curve](images/dt_roc_curve.png "ROC Curve")
+![DecisionTree ROC curve](images/dt_roc_curve.png "DecisionTree ROC Curve")
 
 To determine the optimal set of features from the dataset we used the RFECV algorithm with the decision tree classifer. We started with all the features (including 'grade' and 'int_rate') and then let the algorithm determine the features for us. We did this mostly as an exeriment to see if we'd see if grade and int_rate would be some of the features chosen.
 
 Our results were as follows:
 
-![optimal number of features](images/dt_optimal_num_features.png "Optimal number of features")
+![DecisionTree Optimal Number of Features](images/dt_optimal_num_features.png "DecisionTree Optimal Number of Features")
 
 As you can see, the cross validation scores only goes down after increasing the number of features.
 
@@ -46,18 +44,16 @@ What was somewhat surprising here was the neither 'grade' nor 'int_rate' were se
 So, using the top four features, we created a new feature set, and attempted to find the optimal parameters using GridSearchCV again.
 
 This time our GridSearchCV settled on parameters of 'entropy' and a maxDepth of 11. The resulting metrics are performed against our test data is as follows:
-**accuracy:** 0.996
-**recall:** 0.982
-**precision:** 0.999
-**f-measure:** 0.991
+**accuracy:** 0.996  
+**recall:** 0.982  
+**precision:** 0.999  
+**f-measure:** 0.991  
+ 
+![DecisionTree Optimal Confusion Matrix](images/dt_optimal_confusion_matrix.png "DecisionTree Optimal Confusion Matrix")
 
-Confusion Matrix:
-![confusion matrix](images/dt_optimal_confusion_matrix.png "Confusion Matrix")
+![DecisionTree Optimal Normalized Confusion Matrix](images/dt_optimal_norm_confusion_matrix.png "DecisionTree Optimal Normalized Confusion Matrix")
 
-![norm confusion matrix](images/dt_optimal_norm_confusion_matrix.png "Norm Confusion Matrix")
-
-ROC Curve
-![roc curve](images/dt_optimal_roc_curve.png "ROC Curve")
+![DecisionTree Optimal ROC Curve](images/dt_optimal_roc_curve.png "DecisionTree Optimal ROC Curve")
 
 The results here when compared are actually quite similar. The model with the full feature set gives slightly more accurate results, but given that the number of features dropped from 65 to 4, the second model is preferred in our opinion because of sheer simplicity.
 
@@ -74,17 +70,15 @@ As for the penalty and solver parameters, this time we settled on parameters:
 
 When looking at how our model performed against the test dataset the results were also quite good:
 
-**accuracy:** 0.993
-**recall:** 0.969
-**precision:** 0.998
-**f-measure:** 0.984
+**accuracy:** 0.993  
+**recall:** 0.969   
+**precision:** 0.998  
+**f-measure:** 0.984  
 
-Confusion Matrix:
 ![confusion matrix](images/lr_confusion_matrix.png "Confusion Matrix")
 
 ![norm confusion matrix](images/lr_norm_confusion_matrix.png "Norm Confusion Matrix")
 
-ROC Curve
 ![roc curve](images/lr_roc_curve.png "ROC Curve")
 
 
@@ -96,18 +90,16 @@ Using the set of features that was determined from Part1 i.e. ['loan_amnt', 'fun
 
 When looking at how our this model performed against the test dataset the results were also quite good:
 
-**accuracy:** 0.990
-**recall:** 0.953
-**precision:** 1.000
-**f-measure:** 0.976
+**accuracy:** 0.990  
+**recall:** 0.953  
+**precision:** 1.000  
+**f-measure:** 0.976  
 
-Confusion Matrix:
-![confusion matrix](images/lr_optimal_confusion_matrix.png "Confusion Matrix")
+![LogisticRegression Optimal Confusion Matrix](images/lr_optimal_confusion_matrix.png "LogisticRegression Optimal Confusion Matrix")
 
-![norm confusion matrix](images/lr_optimal_norm_confusion_matrix.png "Norm Confusion Matrix")
+![LogisticRegression Optimal Normalized Confusion Matrix](images/lr_optimal_norm_confusion_matrix.png "LogisticRegression Optimal Normalized Confusion Matrix")
 
-ROC Curve
-![roc curve](images/lr_optimal_roc_curve.png "ROC Curve")
+![LogisticRegression Optimal ROC Curve](images/lr_optimal_roc_curve.png "LogisticRegression Optimal ROC Curve")
 
 
 Comparing the Logistic Regression models vs Decision Tree Model we can see that the results are actually quite similar.
@@ -122,13 +114,12 @@ Using just the Grade feature we were able to produce following model with the fo
 
 best validation score  0.6784488096884151 
 
-**accuracy:** 0.790
-**recall:** 0.058
-**precision:** 0.512
-**f-measure:** 0.104
+**accuracy:** 0.790  
+**recall:** 0.058  
+**precision:** 0.512  
+**f-measure:** 0.104  
 
-ROC Curve
-![roc curve](images/lr_grade_roc_curve.png "ROC Curve")
+![LogisticRegression Grade ROC Curve](images/lr_grade_roc_curve.png "LogisticRegression Grade ROC Curve")
 
 ### Using Int Rate feature
 
@@ -136,13 +127,12 @@ best validation score  0.6873421936329331
 
 Using just the Grade and Int Rate features we were able to produce following model with the following metrics:
 
-**accuracy:** 0.788
-**recall:** 0.079
-**precision:** 0.483
-**f-measure:** 0.136
+**accuracy:** 0.788  
+**recall:** 0.079  
+**precision:** 0.483  
+**f-measure:** 0.136  
 
-ROC Curve
-![roc curve](images/lr_int_rate_roc_curve.png "ROC Curve")
+![LogisticRegression Interest Rate ROC Curve](images/lr_int_rate_roc_curve.png "LogisticRegression Interest Rate ROC Curve")
 
 ### Using Grade and Int Rate features
 
@@ -151,12 +141,11 @@ Using just the Grade and Int Rate features we were able to produce following mod
 best validation score  0.6870006415282901 
 
 
-**accuracy:** 0.790
-**recall:** 0.038
-**precision:** 0.517
-**f-measure:** 0.070
+**accuracy:** 0.790  
+**recall:** 0.038  
+**precision:** 0.517  
+**f-measure:** 0.070  
 
-ROC Curve
-![roc curve](images/lr_grade_int_rate_roc_curve.png "ROC Curve")
+![LogisticRegression Grade and Interest Rate ROC Curve](images/lr_grade_int_rate_roc_curve.png "LogisticRegression Grade and Interest Rate ROC Curve")
 
 
