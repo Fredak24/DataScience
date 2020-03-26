@@ -132,3 +132,6 @@ dmypy.json
 **/data
 
 .vscode/
+
+# This model was too big
+rf_model
